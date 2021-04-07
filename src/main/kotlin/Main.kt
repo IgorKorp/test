@@ -2,14 +2,12 @@
 
 import java.io.File
 import kotlin.system.measureTimeMillis
+import kotlin.io.*
 
-fun main() {
-    println("Укажите файл или путь до файла")
-    val input = readLine()!!.replace(" ", "")
-    println(input)
+fun main(args : Array<String>) {
     val time = measureTimeMillis {
-        val file = File(input)
-        println(ServicesProcessingFile.run(file))
+        val file = File(args[0])
+        println("Количество уникальных ip ${ServicesProcessingFile.run(file)}")
     }
     println("Время выполнения  $time")
 }

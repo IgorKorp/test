@@ -5,7 +5,7 @@ plugins {
     application
 }
 
-group = "me.igork.counterip"
+group = "me.igork"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -28,8 +28,14 @@ tasks.withType<KotlinCompile>() {
 tasks.withType<Jar> {
     // Otherwise you'll get a "No main manifest attribute" error
     manifest {
-        attributes["Main-Class"] = "me.igork.counterip.Main"
+        attributes["Main-Class"] = "Main"
     }
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
