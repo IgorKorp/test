@@ -3,15 +3,15 @@ import java.io.File
 class ServicesProcessingFile {
     companion object {
         private val listIp = ListIp()
-        @JvmStatic fun run (file :File): Long {
-            try {
+        @JvmStatic fun run (file :File): String {
+            return try {
                 file.forEachLine { line ->
                     listIp.add(line)
                 }
+                "Количество уникальных ip ${listIp.total()}"
             } catch (e: Exception) {
-                println("неверно указан путь: ${e.message}")
+                "неверно указан путь: ${e.message}"
             }
-            return listIp.total()
         }
     }
 }
