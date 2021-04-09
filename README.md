@@ -13,6 +13,5 @@ cd test
 
 ```shell
 gradle jar
-
-```shell
 java  -jar ./build/libs/test-1.0-SNAPSHOT.jar 'путь до файла'
+```
