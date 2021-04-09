@@ -5,7 +5,7 @@
 ## Сборка и запуск приложения 
 
 ```shell
-git clone https://github.com/IgorKorp/test.git
+git clone git@github.com:IgorKorp/test.git
 cd test
 ```
 
