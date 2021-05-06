@@ -13,5 +13,10 @@ cd test
 
 ```shell
 gradle jar
+```
+запуск в jar архив:
+```shell
 java  -jar ./build/libs/test-1.0-SNAPSHOT.jar 'путь до файла'
 ```
+
+
